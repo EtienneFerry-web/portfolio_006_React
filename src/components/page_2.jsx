@@ -24,7 +24,7 @@ export default function Page2({ scrollToPage }) {
       {/* Small decorative photo — right center area */}
       <div className="absolute top-[12%] right-[340px] w-[190px] h-[250px]">
         <img
-          src="https://images.unsplash.com/photo-1488229297931-28b5abd45546?w=800&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&fit=crop&q=80"
           alt=""
           className="w-full h-full object-cover grayscale"
         />

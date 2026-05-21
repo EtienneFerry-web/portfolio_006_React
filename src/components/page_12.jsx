@@ -48,7 +48,7 @@ export default function Page12() {
       {/* Decorative photo bottom-right */}
       <div className="absolute bottom-0 right-0 w-[36%] h-[65%]">
         <img
-          src="https://images.unsplash.com/photo-1516535794527-80d2e7e6e8df?w=800&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&fit=crop&q=80"
           alt=""
           className="w-full h-full object-cover grayscale"
         />

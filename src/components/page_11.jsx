@@ -27,7 +27,7 @@ export default function Page11() {
       {/* Full-height photo right */}
       <div className="absolute right-0 top-0 w-[32%] h-full">
         <img
-          src="https://images.unsplash.com/photo-1460134583763-5dba4f9ea84b?w=800&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?w=800&fit=crop&q=80"
           alt="Équipement studio"
           className="w-full h-full object-cover grayscale"
         />

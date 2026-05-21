@@ -6,6 +6,7 @@ export const items = [
     location: 'Islande',
     year: 2024,
     surface: '40 tirages',
+    stock: 12,
     status: 'Édité',
     description:
       "Une exploration silencieuse des vastes étendues islandaises captées à l'aube, lorsque la lumière rasante transforme chaque rocher en sculpture naturelle. Cette série de quarante tirages grand format interroge la notion de temps géologique face à l'instant photographique. Les plaines de cendre, les glaciers translucides et les sources thermales fumantes y sont traités avec une rigueur formelle qui tient autant du documentaire que de la peinture abstraite. Chaque image est le fruit d'une attente — parfois plusieurs heures — pour saisir la fraction de seconde où la lumière boréale révèle l'architecture secrète du paysage.",
@@ -25,6 +26,7 @@ export const items = [
     location: 'Tokyo, Japon',
     year: 2023,
     surface: '28 tirages',
+    stock: 5,
     status: 'Livré',
     description:
       "Dans les rues labyrinthiques de Tokyo, entre les enseignes lumineuses et les passages couverts, cette série s'attache aux visages anonymes de la mégapole. Vingt-huit portraits construits selon une même contrainte : aucun sujet ne regarde l'objectif. L'absence du regard crée une distance respectueuse et, paradoxalement, une intimité troublante. Le noir et blanc accentue les contrastes d'une ville où la modernité et la tradition cohabitent dans un équilibre fragile. Ce projet est le résultat de trois semaines d'immersion dans les quartiers de Shinjuku, Yanaka et Shimokitazawa.",
@@ -32,7 +34,7 @@ export const items = [
       'https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=800&fit=crop&q=80',
     images: [
       'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1539648926394-af64fc04a7c7?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1200&fit=crop&q=80',
       'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=1200&fit=crop&q=80',
       'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&fit=crop&q=80',
     ],
@@ -44,6 +46,7 @@ export const items = [
     location: 'Detroit, États-Unis',
     year: 2022,
     surface: '35 tirages',
+    stock: 8,
     status: 'Livré',
     description:
       "Les friches industrielles de Detroit recèlent une beauté que l'histoire a figée. Cette série documentaire capte les usines abandonnées, les chaînes de montage rouillées et les verrières fracassées de la Motor City avec une rigueur presque archéologique. Loin du pittoresque de la ruine, le travail cherche à restituer la dignité de ces espaces et de ceux qui les ont habités. Chaque cadre est pensé comme un monument — sobre, frontal, sans pathos. Trente-cinq tirages qui constituent une mémoire visuelle d'un monde industriel révolu.",
@@ -52,8 +55,8 @@ export const items = [
     images: [
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&fit=crop&q=80',
       'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=1200&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1518414872490-7a4285a2b6a4?w=1200&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1504309562-5f5ae4e9b5ca?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&fit=crop&q=80',
     ],
   },
   {
@@ -63,16 +66,17 @@ export const items = [
     location: 'Versailles, France',
     year: 2022,
     surface: '18 tirages',
+    stock: 3,
     status: 'Édité',
     description:
       "Une série de natures mortes botaniques réalisées dans les jardins du Grand Trianon au fil des saisons. Les fleurs, tiges et feuillages y sont traités comme des architectures — étudiés sous une lumière latérale rasante qui révèle textures et volumes dans leurs plus infimes détails. Dix-huit tirages qui constituent un herbier photographique d'une rigueur formelle rigoureuse, entre la tradition de la peinture hollandaise du XVIIe siècle et une sensibilité contemporaine attentive à l'abstraction. Un hommage silencieux à la beauté périssable de la matière organique.",
     cover:
-      'https://images.unsplash.com/photo-1487887235947-a955ef187fea?w=800&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1459156212016-c812468e2115?w=800&fit=crop&q=80',
     images: [
       'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&fit=crop&q=80',
       'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&fit=crop&q=80',
       'https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?w=1200&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1496485187620-8e1ab787b67a?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1445543949571-ffc3e0e2f55e?w=1200&fit=crop&q=80',
     ],
   },
   {
@@ -82,6 +86,7 @@ export const items = [
     location: 'Paris, France',
     year: 2021,
     surface: '22 tirages',
+    stock: 18,
     status: 'Édité',
     description:
       "Paris entre minuit et l'aube : une ville différente, presque étrangère. Cette série de longues expositions — entre 4 et 45 minutes — transforme la capitale en paysage abstrait où les lumières deviennent des traits, les nuages des voiles, la Seine un miroir liquide. Sans aucun logiciel de retouche, uniquement par la durée de l'exposition, la réalité se défait et se réinvente. Vingt-deux tirages qui constituent un voyage nocturne dans une métropole familière rendue soudainement mystérieuse, où le temps visible devient la matière même de l'image.",
@@ -92,6 +97,66 @@ export const items = [
       'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1200&fit=crop&q=80',
       'https://images.unsplash.com/photo-1467803738586-46b7eb7b16a1?w=1200&fit=crop&q=80',
       'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&fit=crop&q=80',
+    ],
+  },
+  {
+    id: 6,
+    title: 'Néons de Séoul',
+    type: 'Série Portrait',
+    location: 'Séoul, Corée du Sud',
+    year: 2023,
+    surface: '24 tirages',
+    stock: 7,
+    status: 'Édité',
+    description:
+      "Dans les ruelles illuminées de Séoul, cette série de vingt-quatre portraits explore la tension entre l'identité individuelle et la lumière artificielle des enseignes coréennes. Réalisée en numérique sur capteur plein format, chaque image confronte un visage à la polychromie agressive des néons — rouge, cyan, blanc — pour en révéler une expressivité que la lumière naturelle ne saurait atteindre. Le résultat, traité en noir et blanc profond avec une gestion millimétrée des hautes lumières, restitue la vitalité nocturne d'une métropole qui ne dort jamais.",
+    cover:
+      'https://images.unsplash.com/photo-1538485399081-7191377e8241?w=800&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1553697388-94e804e2f0f6?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&fit=crop&q=80',
+    ],
+  },
+  {
+    id: 7,
+    title: 'Ciel Variable',
+    type: 'Série Paysage',
+    location: 'Bretagne, France',
+    year: 2024,
+    surface: '30 tirages',
+    stock: 21,
+    status: 'Édité',
+    description:
+      "La Bretagne, cette presqu'île battue par les vents atlantiques, offre un théâtre climatique sans équivalent en Europe. Cette série de trente tirages documente l'instabilité permanente du ciel breton — ces formations nuageuses qui se succèdent à une vitesse déconcertante, métamorphosant la lumière et la couleur de la mer toutes les vingt minutes. Réalisée sur une période de dix-huit mois, la série adopte un point de vue délibérément bas, horizon fixe, regard vers le haut, pour inverser la hiérarchie entre terre et ciel et faire du mouvement atmosphérique le véritable sujet.",
+    cover:
+      'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=800&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1451847251646-8a6c0dd1510c?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1520453803296-c39eabe2dab4?w=1200&fit=crop&q=80',
+    ],
+  },
+  {
+    id: 8,
+    title: "Marché de l'Aube",
+    type: 'Documentaire',
+    location: 'Marrakech, Maroc',
+    year: 2020,
+    surface: '32 tirages',
+    stock: 0,
+    status: 'Précommande',
+    description:
+      "Chaque matin, avant le lever du soleil, les soukhs de Marrakech s'éveillent dans une agitation silencieuse que les touristes ne verront jamais. Cette série documentaire de trente-deux tirages infiltre ce moment suspendu entre la nuit et le jour — les porteurs, les bouchers, les marchands de fleurs — captés dans la lumière bleue de l'aube par un appareil argentique moyen format chargé de Kodak Tri-X. Pas de mise en scène, pas de lumière artificielle : uniquement la rigueur du reportage et le grain caractéristique d'un film poussé à 1600 ISO.",
+    cover:
+      'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&fit=crop&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1200&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=1200&fit=crop&q=80',
     ],
   },
 ]

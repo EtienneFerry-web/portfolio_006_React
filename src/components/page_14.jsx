@@ -4,8 +4,11 @@ import { useCart } from '../context/CartContext'
 export default function Page14({ scrollToPage }) {
   const { cart, removeFromCart, updateQty, total, clearCart } = useCart()
   const [ordered, setOrdered] = useState(false)
+  const [orderRef, setOrderRef] = useState('')
 
   function handleOrder() {
+    const ref = Math.random().toString(36).slice(2, 10).toUpperCase()
+    setOrderRef(ref)
     setOrdered(true)
     clearCart()
   }
@@ -25,6 +28,13 @@ export default function Page14({ scrollToPage }) {
         </h2>
         <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-6">
           Votre commande a été transmise à l'atelier.
+        </p>
+        <div className="mt-6 border border-gray-100 px-8 py-4 flex flex-col items-center gap-1">
+          <p className="text-[9px] uppercase tracking-widest text-gray-400">Référence commande</p>
+          <p className="text-[14px] font-mono font-medium text-black tracking-widest">{orderRef}</p>
+        </div>
+        <p className="text-[10px] uppercase tracking-widest text-gray-400 mt-4">
+          Livraison sous 10 à 15 jours ouvrés — Éditions numérotées et signées
         </p>
         <button
           onClick={() => { setOrdered(false); scrollToPage?.(13) }}
@@ -65,58 +75,64 @@ export default function Page14({ scrollToPage }) {
           </div>
         ) : (
           <div className="flex flex-col divide-y divide-gray-100 max-w-2xl">
-            {cart.map((line) => (
-              <div key={line.key} className="flex items-center gap-6 py-5">
-                {/* Thumb */}
-                <div className="w-16 h-16 shrink-0 overflow-hidden">
-                  <img
-                    src={line.item.cover}
-                    alt={line.item.title}
-                    className="w-full h-full object-cover grayscale"
-                  />
-                </div>
+            {cart.map((line) => {
+              const linePrice = (line.format.price + (line.paper?.priceAdd ?? 0)) * line.qty
+              return (
+                <div key={line.key} className="flex items-center gap-6 py-5">
+                  {/* Thumb */}
+                  <div className="w-16 h-16 shrink-0 overflow-hidden">
+                    <img
+                      src={line.item.cover}
+                      alt={line.item.title}
+                      className="w-full h-full object-cover grayscale"
+                    />
+                  </div>
 
-                {/* Info */}
-                <div className="flex-1 min-w-0">
-                  <p className="text-[9px] uppercase tracking-widest text-gray-400">{line.item.type}</p>
-                  <p className="text-[13px] uppercase tracking-wider font-medium text-black truncate">{line.item.title}</p>
-                  <p className="text-[9px] uppercase tracking-widest text-gray-400 mt-0.5">{line.format.label}</p>
-                </div>
+                  {/* Info */}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[9px] uppercase tracking-widest text-gray-400">{line.item.type}</p>
+                    <p className="text-[13px] uppercase tracking-wider font-medium text-black truncate">{line.item.title}</p>
+                    <p className="text-[9px] uppercase tracking-widest text-gray-400 mt-0.5">
+                      {line.format.label}
+                      {line.paper && <span className="ml-2">{line.paper.label}</span>}
+                    </p>
+                  </div>
 
-                {/* Qty */}
-                <div className="flex items-center gap-2 shrink-0">
+                  {/* Qty */}
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      onClick={() => updateQty(line.key, line.qty - 1)}
+                      className="w-6 h-6 border border-gray-200 text-[11px] text-gray-400 hover:border-black hover:text-black transition-colors cursor-pointer flex items-center justify-center"
+                      aria-label="Diminuer la quantité"
+                    >
+                      −
+                    </button>
+                    <span className="text-[12px] w-4 text-center">{line.qty}</span>
+                    <button
+                      onClick={() => updateQty(line.key, line.qty + 1)}
+                      className="w-6 h-6 border border-gray-200 text-[11px] text-gray-400 hover:border-black hover:text-black transition-colors cursor-pointer flex items-center justify-center"
+                      aria-label="Augmenter la quantité"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Price */}
+                  <span className="text-[13px] font-medium text-black w-16 text-right shrink-0">
+                    €{linePrice.toLocaleString('fr-FR')}
+                  </span>
+
+                  {/* Remove */}
                   <button
-                    onClick={() => updateQty(line.key, line.qty - 1)}
-                    className="w-6 h-6 border border-gray-200 text-[11px] text-gray-400 hover:border-black hover:text-black transition-colors cursor-pointer flex items-center justify-center"
-                    aria-label="Diminuer la quantité"
+                    onClick={() => removeFromCart(line.key)}
+                    className="text-[11px] text-gray-300 hover:text-black transition-colors cursor-pointer shrink-0"
+                    aria-label="Supprimer l'article"
                   >
-                    −
-                  </button>
-                  <span className="text-[12px] w-4 text-center">{line.qty}</span>
-                  <button
-                    onClick={() => updateQty(line.key, line.qty + 1)}
-                    className="w-6 h-6 border border-gray-200 text-[11px] text-gray-400 hover:border-black hover:text-black transition-colors cursor-pointer flex items-center justify-center"
-                    aria-label="Augmenter la quantité"
-                  >
-                    +
+                    ×
                   </button>
                 </div>
-
-                {/* Price */}
-                <span className="text-[13px] font-medium text-black w-16 text-right shrink-0">
-                  €{(line.format.price * line.qty).toLocaleString('fr-FR')}
-                </span>
-
-                {/* Remove */}
-                <button
-                  onClick={() => removeFromCart(line.key)}
-                  className="text-[11px] text-gray-300 hover:text-black transition-colors cursor-pointer shrink-0"
-                  aria-label="Supprimer l'article"
-                >
-                  ×
-                </button>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </div>

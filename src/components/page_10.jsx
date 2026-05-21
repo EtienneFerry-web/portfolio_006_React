@@ -51,7 +51,7 @@ export default function Page10() {
       {/* Decorative bottom-right image */}
       <div className="absolute bottom-0 right-8 w-[200px] h-[200px]">
         <img
-          src="https://images.unsplash.com/photo-1452378174528-537c1ff1b4cd?w=800&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=800&fit=crop&q=80"
           alt=""
           className="w-full h-full object-cover grayscale"
         />

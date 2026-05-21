@@ -8,17 +8,27 @@ const formats = [
   { label: '80×100 cm', price: 580 },
 ]
 
+const papers = [
+  { label: 'Pigmentaire', priceAdd: 0 },
+  { label: 'Baryté', priceAdd: 50 },
+]
+
 export default function Page13() {
   const { addToCart } = useCart()
-  const [selected, setSelected] = useState({})
+  const [selectedFormat, setSelectedFormat] = useState({})
+  const [selectedPaper, setSelectedPaper] = useState({})
   const [added, setAdded] = useState({})
 
   function getFormat(itemId) {
-    return selected[itemId] ?? formats[0]
+    return selectedFormat[itemId] ?? formats[0]
+  }
+
+  function getPaper(itemId) {
+    return selectedPaper[itemId] ?? papers[0]
   }
 
   function handleAdd(item) {
-    addToCart(item, getFormat(item.id))
+    addToCart(item, getFormat(item.id), getPaper(item.id))
     setAdded((prev) => ({ ...prev, [item.id]: true }))
     setTimeout(() => setAdded((prev) => ({ ...prev, [item.id]: false })), 1200)
   }
@@ -41,6 +51,10 @@ export default function Page13() {
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100 border-b border-gray-100">
           {items.map((item) => {
             const fmt = getFormat(item.id)
+            const ppr = getPaper(item.id)
+            const linePrice = fmt.price + ppr.priceAdd
+            const isPreorder = item.stock === 0
+
             return (
               <div key={item.id} className="bg-white flex flex-col group">
                 {/* Image */}
@@ -50,10 +64,15 @@ export default function Page13() {
                     alt={item.title}
                     className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-2 left-2">
+                  <div className="absolute top-2 left-2 flex gap-1">
                     <span className="text-[9px] uppercase tracking-widest bg-white/90 text-gray-500 px-2 py-0.5">
                       {item.status}
                     </span>
+                    {item.stock > 0 && item.stock <= 5 && (
+                      <span className="text-[9px] uppercase tracking-widest bg-black text-white px-2 py-0.5">
+                        Derniers
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -62,6 +81,9 @@ export default function Page13() {
                   <div>
                     <p className="text-[9px] uppercase tracking-widest text-gray-400">{item.type} — {item.year}</p>
                     <h3 className="text-[13px] uppercase tracking-wider font-medium text-black mt-0.5">{item.title}</h3>
+                    <p className="text-[9px] uppercase tracking-widest text-gray-300 mt-1">
+                      {isPreorder ? 'Précommande ouverte' : `${item.stock} ex. restants`}
+                    </p>
                   </div>
 
                   {/* Format selector */}
@@ -69,10 +91,10 @@ export default function Page13() {
                     {formats.map((f) => (
                       <button
                         key={f.label}
-                        onClick={() => setSelected((prev) => ({ ...prev, [item.id]: f }))}
+                        onClick={() => setSelectedFormat((prev) => ({ ...prev, [item.id]: f }))}
                         className={`text-[9px] uppercase tracking-widest px-2 py-1 border transition-colors cursor-pointer ${
                           fmt.label === f.label
-                            ? 'border-black text-black bg-black text-white'
+                            ? 'border-black bg-black text-white'
                             : 'border-gray-200 text-gray-400 hover:border-gray-400'
                         }`}
                       >
@@ -81,9 +103,29 @@ export default function Page13() {
                     ))}
                   </div>
 
+                  {/* Paper selector */}
+                  <div className="flex gap-1">
+                    {papers.map((p) => (
+                      <button
+                        key={p.label}
+                        onClick={() => setSelectedPaper((prev) => ({ ...prev, [item.id]: p }))}
+                        className={`text-[9px] uppercase tracking-widest px-2 py-1 border transition-colors cursor-pointer ${
+                          ppr.label === p.label
+                            ? 'border-black bg-black text-white'
+                            : 'border-gray-200 text-gray-400 hover:border-gray-400'
+                        }`}
+                      >
+                        {p.label}
+                        {p.priceAdd > 0 && (
+                          <span className="ml-1 text-[8px] opacity-60">+{p.priceAdd}€</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+
                   {/* Price + Add */}
                   <div className="flex items-center justify-between mt-auto pt-2 border-t border-gray-100">
-                    <span className="text-[13px] font-medium text-black">€{fmt.price}</span>
+                    <span className="text-[13px] font-medium text-black">€{linePrice}</span>
                     <button
                       onClick={() => handleAdd(item)}
                       className={`text-[9px] uppercase tracking-widest px-3 py-1.5 border transition-all duration-200 cursor-pointer ${
@@ -92,7 +134,7 @@ export default function Page13() {
                           : 'border-gray-300 text-gray-500 hover:border-black hover:text-black'
                       }`}
                     >
-                      {added[item.id] ? '✓ Ajouté' : '+ Panier'}
+                      {added[item.id] ? '✓ Ajouté' : isPreorder ? 'Précommande' : '+ Panier'}
                     </button>
                   </div>
                 </div>

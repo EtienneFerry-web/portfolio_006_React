@@ -20,7 +20,7 @@ export default function Page9() {
       {/* Small vertical photo bottom-left */}
       <div className="absolute bottom-0 left-8 w-[22%] h-[46%]">
         <img
-          src="https://images.unsplash.com/photo-1542038374416-2c8f63c7a04c?w=800&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&fit=crop&q=80"
           alt="Film négatif"
           className="w-full h-full object-cover grayscale"
         />

@@ -12,7 +12,7 @@ export default function Page4() {
       {/* Full-height photo left */}
       <div className="absolute left-0 top-0 w-[55%] h-full">
         <img
-          src="https://images.unsplash.com/photo-1509909756405-be0199742c45?w=800&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&fit=crop&q=80"
           alt="Studio"
           className="w-full h-full object-cover grayscale"
         />
